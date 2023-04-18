@@ -5,18 +5,18 @@ LIMITS = 100
 
 def first_choice(p):
     current = random_init(p)
-    valueC = evaluate(current, p)
+    value = evaluate(current, p)
     i = 0
     while i < LIMITS:
         successor = random_mutant(current, p)
-        valueS = evaluate(successor, p)
-        if valueS < valueC:
+        value_eval = evaluate(successor, p)
+        if value_eval < value:
             current = successor
-            valueC = valueS
+            value = value_eval
             i = 0
         else:
             i += 1
-    return current, valueC
+    return current, value
 
 
 def random_mutant(current, p):

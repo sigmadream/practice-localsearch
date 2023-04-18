@@ -9,10 +9,10 @@ def first_choice(p):
     i = 0
     while i < LIMITS:
         successor = random_mutant(current, p)
-        values_mutation = evaluate(successor, p)
-        if values_mutation < values:
+        values_eval = evaluate(successor, p)
+        if values_eval < values:
             current = successor
-            values = values_mutation
+            values = values_eval
             i = 0
         else:
             i += 1
