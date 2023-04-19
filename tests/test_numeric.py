@@ -1,4 +1,5 @@
-import numeric
+from src import numeric
+
 
 filename = "./data/Convex.txt"
 exp = "(x1 - 2) ** 2 + 5 * (x2 - 5) ** 2 + 8 * (x3 + 8) ** 2 + 3 * (x4 + 1) ** 2 + 6 * (x5 - 7) ** 2"
