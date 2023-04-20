@@ -1,6 +1,8 @@
 import random
+import math
 
 
+ALPHA = 0.01
 DELTA = 0.01
 eval_count = 0
 
