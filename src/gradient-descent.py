@@ -3,34 +3,34 @@ from numeric import *
 EPSILON = 0.0001
 
 
-def gradient(current, p, values, epsilon):
+def gradient(current, p, value, epsilon):
     gradient = []
     low = p[1][1]
     up = p[1][2]
     for i in range(len(current)):
-        values = current[i]
+        value = current[i]
         derivate = current[:i]
-        if low[i] <= values + epsilon <= up[i]:
-            values = values + epsilon
-        derivate.append(values)
+        if low[i] <= value + epsilon <= up[i]:
+            value = value + epsilon
+        derivate.append(value)
         derivate.extend(current[i + 1 :])
-        gradient.append((evaluate(derivate, p) - values) / epsilon)
+        gradient.append((evaluate(derivate, p) - value) / epsilon)
     return gradient
 
 
 def gradient_descent(p):
     current = random_init(p)
-    values = evaluate(current, p)
+    value = evaluate(current, p)
     while True:
-        gradient_lst = gradient(current, p, values, EPSILON)
+        gradient_lst = gradient(current, p, value, EPSILON)
         next_p = take_step(gradient_lst, current)
         next_n = evaluate(next_p, p)
-        if next_n <= values:
-            values = next_n
+        if next_n <= value:
+            value = next_n
             current = next_p
         else:
             break
-    return (current, values)
+    return (current, value)
 
 
 def take_step(gradient, current):

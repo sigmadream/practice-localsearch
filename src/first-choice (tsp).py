@@ -5,18 +5,18 @@ LIMITS = 100
 
 def first_choice(p):
     current = random_init(p)
-    values = evaluate(current, p)
+    value = evaluate(current, p)
     i = 0
     while i < LIMITS:
         successor = random_mutant(current, p)
-        values_eval = evaluate(successor, p)
-        if values_eval < values:
+        eval_value = evaluate(successor, p)
+        if eval_value < value:
             current = successor
-            values = values_eval
+            value = eval_value
             i = 0
         else:
             i += 1
-    return current, values
+    return current, value
 
 
 def random_mutant(current, p):
@@ -35,7 +35,7 @@ def display_setting():
 
 if __name__ == "__main__":
     p = create_problem("./data/tsp30.txt")
-    solution, minimum = first_choice(p)
+    current, minimum = first_choice(p)
     describe_problem(p)
     display_setting()
-    display_result(solution, minimum)
+    display_result(current, minimum)

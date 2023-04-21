@@ -85,7 +85,7 @@ def ten_per_row(solution):
 
 if __name__ == "__main__":
     p = create_problem("./data/tsp30.txt")
-    solution = random_init(p)
-    minimum = evaluate(solution, p)
+    current = random_init(p)
+    minimum = evaluate(current, p)
     describe_problem(p)
-    display_result(solution, minimum)
+    display_result(current, minimum)
