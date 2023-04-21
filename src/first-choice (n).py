@@ -5,18 +5,18 @@ LIMITS = 100
 
 def first_choice(p):
     current = random_init(p)
-    values = evaluate(current, p)
+    value = evaluate(current, p)
     i = 0
     while i < LIMITS:
         successor = random_mutant(current, p)
-        value_eval = evaluate(successor, p)
-        if value_eval < values:
+        eval_value = evaluate(successor, p)
+        if eval_value < value:
             current = successor
-            values = value_eval
+            value = eval_value
             i = 0
         else:
             i += 1
-    return current, values
+    return current, value
 
 
 def random_mutant(current, p):
@@ -35,7 +35,7 @@ def display_setting():
 
 if __name__ == "__main__":
     p = create_problem("./data/Convex.txt")
-    solution, minimum = first_choice(p)
+    current, minimum = first_choice(p)
     describe_problem(p)
     display_setting()
-    display_result(solution, minimum)
+    display_result(current, minimum)

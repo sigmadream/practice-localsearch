@@ -3,16 +3,16 @@ from numeric import *
 
 def steepest_ascent(p):
     current = random_init(p)
-    values = evaluate(current, p)
+    value = evaluate(current, p)
     while True:
         neighbors = mutants(current, p)
-        (successor, value_best_of) = best_of(neighbors, p)
-        if value_best_of >= values:
+        (successor, best_of_value) = best_of(neighbors, p)
+        if best_of_value >= value:
             break
         else:
             current = successor
-            values = value_best_of
-    return (current, values)
+            value = best_of_value
+    return (current, value)
 
 
 def mutants(current, p):
@@ -41,7 +41,7 @@ def display_setting():
 
 if __name__ == "__main__":
     p = create_problem("./data/Convex.txt")
-    solution, minimum = steepest_ascent(p)
+    current, minimum = steepest_ascent(p)
     describe_problem(p)
     display_setting()
-    display_result(solution, minimum)
+    display_result(current, minimum)

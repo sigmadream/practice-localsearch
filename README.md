@@ -5,7 +5,7 @@
 ## 설정
 
 ```
-$ pip install pytest black
+$ pip install pytest black seaborn
 ```
 
 ## 알고리즘
@@ -14,6 +14,8 @@ $ pip install pytest black
   - [x] [First-Choice](https://web.cs.hacettepe.edu.tr/~ilyas/Courses/VBM688/lec05_localsearch.pdf)
   - [x] [Steepest Ascent](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8527821)
   - [x] [Gradient Descent](https://arxiv.org/pdf/1609.04747.pdf)
+  - [x] [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)
+  - [x] [Simulated Annealing](https://projecteuclid.org/journals/statistical-science/volume-8/issue-1/Simulated-Annealing/10.1214/ss/1177011077.pdf)
 
 ## 추가 정보
 

@@ -3,16 +3,16 @@ from tsp import *
 
 def steepest_ascent(p):
     current = random_init(p)
-    values = evaluate(current, p)
+    value = evaluate(current, p)
     while True:
         neighbors = mutants(current, p)
-        (successor, value_best_of) = best_of(neighbors, p)
-        if value_best_of >= values:
+        (successor, best_of_value) = best_of(neighbors, p)
+        if best_of_value >= value:
             break
         else:
             current = successor
-            values = value_best_of
-    return (current, values)
+            value = best_of_value
+    return (current, value)
 
 
 def mutants(current, p):
@@ -24,9 +24,9 @@ def mutants(current, p):
         i, j = sorted([random.randrange(n) for _ in range(2)])
         if i < j and [i, j] not in tried_pairs:
             tried_pairs.append([i, j])
-            curCopy = inversion(current, i, j)
+            current_copy = inversion(current, i, j)
             count += 1
-            neighbors.append(curCopy)
+            neighbors.append(current_copy)
     return neighbors
 
 
@@ -46,7 +46,7 @@ def display_setting():
 
 if __name__ == "__main__":
     p = create_problem("./data/tsp30.txt")
-    solution, minimum = steepest_ascent(p)
+    current, minimum = random_init(p)
     describe_problem(p)
-    display_setting()
-    display_result(solution, minimum)
+    # display_setting()
+    # display_result(current, minimum)
